@@ -1,0 +1,9 @@
+[Desktop Entry]
+Exec=projekt7
+Type=Application
+Icon=projekt7
+Terminal=false
+Name=projekt7
+GenericName=music player
+Comment=Phonon based music player
+Categories=AudioVideo;Player;

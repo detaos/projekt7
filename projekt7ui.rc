@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gui name="Projekt 7"
+     version="1"
+     xmlns="http://www.kde.org/standards/kxmlgui/1.0"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xsi:schemaLocation="http://www.kde.org/standards/kxmlgui/1.0
+                         http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
+
+  <MenuBar>
+    <Menu name="file" >
+      <Action name="previous" />
+      <Action name="play" />
+      <Action name="pause" />
+      <Action name="next" />
+    </Menu>
+    <Menu name="view" >
+      <Action name="track_details" />
+    </Menu>
+  </MenuBar>
+  <ToolBar name="mainToolBar" iconText="false" >
+    <text>Main Toolbar</text>
+    <Action name="previous" />
+    <Action name="pause" />
+    <Action name="play" />
+    <Action name="next" />
+  </ToolBar>
+
+</gui>
