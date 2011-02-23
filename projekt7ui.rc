@@ -7,22 +7,27 @@
                          http://www.kde.org/standards/kxmlgui/1.0/kxmlgui.xsd" >
 
   <MenuBar>
-    <Menu name="file" >
-      <Action name="previous" />
-      <Action name="play" />
-      <Action name="pause" />
-      <Action name="next" />
+    <Menu name="file">
+      <text>&amp;File</text>
+      <Action name="files" />
+      <Action name="directory" />
     </Menu>
-    <Menu name="view" >
+    <Menu name="playback">
+      <text>&amp;Playback</text>
+      <Action name="previous" />
+      <Action name="pause" />
+      <Action name="play" />
+      <Action name="next" />
+      <Separator />
+      <Action name="queue" />
+      <Action name="shuffle" />
+    </Menu>
+    <Menu name="view">
+      <text>&amp;View</text>
+      <Action name="current_track" />
       <Action name="track_details" />
+      <Action name="track_queue" />
+      <Action name="playlist" />
     </Menu>
   </MenuBar>
-  <ToolBar name="mainToolBar" iconText="false" >
-    <text>Main Toolbar</text>
-    <Action name="previous" />
-    <Action name="pause" />
-    <Action name="play" />
-    <Action name="next" />
-  </ToolBar>
-
 </gui>
