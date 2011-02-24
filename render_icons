@@ -1,0 +1,10 @@
+#! /bin/bash
+
+mkdir icons
+
+icons=( 8 16 22 32 48 64 128 256 )
+
+for icon in ${icons[@]}
+do
+inkscape --without-gui --export-area-page --export-width=$icon --export-height=$icon --export-png=icons/hi$icon-app-projekt7.png projekt7.svg
+done
