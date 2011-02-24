@@ -16,6 +16,7 @@
 #include <KMessageBox>
 #include <KSeparator>
 #include <KStandardAction>
+#include <KStandardDirs>
 #include <KStatusBar>
 #include <KToolBar>
 
@@ -50,7 +51,8 @@ const char *ALL = "[All]";
 
 Player::Player(QWidget *parent) : KXmlGuiWindow(parent) {
 	//SETUP DATABASE
-	int return_code = sqlite3_open("projekt7_tracks_db", &tracks_db);
+	QString db_path = KGlobal::dirs()->saveLocation("data") + "projekt7/tracks_db";
+	int return_code = sqlite3_open(qtos(db_path), &tracks_db);
 	if (return_code) {
 		showError("Failed to open the Projekt7 Track Database: ", sqlite3_errmsg(tracks_db));
 		exit(return_code);
