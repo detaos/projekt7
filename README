@@ -15,4 +15,6 @@ FUTURE PLANS:
 4) Display track length and album lenth
    - length right aligned in column
 5) Integrate libvisual or newer, more functional equivalent
+6) Add a system tray icon
+7) Show a notification from the sytem tray icon when the track changes
 NOTE: FUTURE PLANS listed in no particular order
