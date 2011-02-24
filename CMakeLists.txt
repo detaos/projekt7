@@ -11,7 +11,7 @@ set(projekt7_SRCS
 kde4_add_executable(projekt7 ${projekt7_SRCS})
 kde4_add_app_icon(projekt7_SRCS
 				  "${KDE4_INSTALL_DIR}/share/icons/hicolor/*/apps/projekt7.png")
-kde4_install_icons(${ICON_INSTALL_DIR})
+add_subdirectory(icons)
 
 target_link_libraries(projekt7 tag sqlite3
                       ${KDE4_KDEUI_LIBS}

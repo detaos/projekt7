@@ -1,0 +1,18 @@
+Source: projekt7
+Maintainer: Rick Battle <rick.battle@solmera.com>
+Section: sound
+Priority: extra
+Standards-Version: 3.9.1
+Build-Depends: debhelper (>= 7.3.8),
+  libqt4-dev,
+  kdelibs5-dev,
+  libtag1-dev,
+  libsqlite3-dev,
+  libphonon-dev,
+  cmake
+
+Package: projekt7
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Phonon based music player
+  sqlite storage, phonon backed, Qt based 3 column layout (artist, albums (sorted by year), tracks (sorted optionally alphabetically or by track number), music player for KDE4
