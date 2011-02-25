@@ -5,6 +5,11 @@ KNOWN ISSUES:
 2) When loading files, the mime-type filters need work.
 3) When hiding the playlist, the window remembers the minimum height required to diplay the playlist and current width of the window instead of shrinking to the minimum width and height possible.
 
+HELPER SCRIPTS:
+render_icons: uses inkscape to render projekt7.svg in the various sizes used by KDE4
+make: builds and installs Projekt 7 into ~/bin
+build_debian_package: builds debian source and binary pacakges for your architecture in ./deb
+
 FUTURE PLANS:
 1) Make use of the `playcount` field in the database
 2) Add a background thread to open and read track length from recently added tracks, stored in the `length` field in the database

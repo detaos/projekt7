@@ -1,0 +1,9 @@
+#! /bin/bash
+
+mkdir deb
+mkdir deb/projekt7_0.9.9-1
+cp -R debian icons CMakeLists.txt COPYRIGHT main.cpp player.cpp player.h projekt7.desktop projekt7.svg projekt7ui.rc README deb/projekt7_0.9.9-1
+cd deb
+tar -pczf projekt7_0.9.9.orig.tar.gz projekt7_0.9.9-1
+cd projekt7_0.9.9-1
+debuild -us -uc
