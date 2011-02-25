@@ -8,7 +8,7 @@ KNOWN ISSUES:
 HELPER SCRIPTS:
 render_icons: uses inkscape to render projekt7.svg in the various sizes used by KDE4
 make: builds and installs Projekt 7 into ~/bin
-build_debian_package: builds debian source and binary pacakges for your architecture in ./deb
+build_deb: builds debian source and binary pacakges for your architecture in ./deb
 
 FUTURE PLANS:
 1) Make use of the `playcount` field in the database
