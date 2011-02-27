@@ -6,7 +6,6 @@
 #include <QHBoxLayout>
 #include <QKeyEvent>
 #include <QProgressDialog>
-#include <QTimer>
 #include <QVBoxLayout>
 
 #include <KActionCollection>
