@@ -16,7 +16,7 @@ FUTURE PLANS:
 1) Make use of the `playcount` field in the database
 2) Add a background thread to open and read track length from recently added tracks, stored in the `length` field in the database
 3) Create a "database statistics" window
-   - number of artists, albums, and tracks tracks
+   - number of artists, albums, and tracks
    - total play time of all tracks
    - 'n' to 'n+9' "top" tracks (1 to 10, then 11 to 20, then ... )
 4) Display track length and album lenth
