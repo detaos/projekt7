@@ -14,6 +14,7 @@
 #include <KConfig>
 #include <KListWidget>
 #include <KPushButton>
+#include <KSystemTrayIcon>
 #include <KXmlGuiWindow>
 
 #include <phonon/mediaobject.h>
@@ -35,6 +36,8 @@ class Player : public KXmlGuiWindow
 		~Player();
 		
 	private slots:
+		void quit();
+		
 		void loadFiles();
 		void loadDirectory();
 		
@@ -72,6 +75,7 @@ class Player : public KXmlGuiWindow
 		void keyReleaseEvent(QKeyEvent *);
 		
 	private:
+		void cleanup();
 		inline KAction* setupKAction(const char *, QString, QString, const char *);
 		void readDirectory(const QDir &, QStringList &);
 		void loadFiles(const QStringList &);
@@ -100,6 +104,7 @@ class Player : public KXmlGuiWindow
 		QHash<int, QString> track_queue_info;
 		KIcon *queued, dequeud;
 		QLinkedList<HistoryItem> history; //a stack ... push_back to add ... takeLast to retrieve next
+		KSystemTrayIcon *tray_icon;
 };
 
 #endif

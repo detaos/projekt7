@@ -6,6 +6,7 @@
 #include <QHBoxLayout>
 #include <QKeyEvent>
 #include <QProgressDialog>
+#include <QTimer>
 #include <QVBoxLayout>
 
 #include <KActionCollection>
@@ -131,6 +132,10 @@ Player::Player(QWidget *parent) : KXmlGuiWindow(parent) {
 	bar->insertPermanentItem("", SONG_NAME, true);
 	bar->setItemAlignment(SONG_NAME, Qt::AlignLeft | Qt::AlignVCenter);
 	
+	//SETUP SYSTEM TRAY ICON
+	tray_icon = new KSystemTrayIcon("projekt7", this);
+	tray_icon->show();
+	
 	//SETUP METADATA WINDOW
 	metadata_window = new QWidget(this, Qt::Dialog);
 	metadata_window->setWindowModality(Qt::WindowModal);
@@ -188,7 +193,8 @@ Player::Player(QWidget *parent) : KXmlGuiWindow(parent) {
 	queue_window->setLayout(qwLayout);
 	
 	//SETUP ACTIONS
-	KStandardAction::quit(kapp, SLOT(quit()), actionCollection());
+ 	KStandardAction::quit(kapp, SLOT(quit()), actionCollection());
+	connect(kapp, SIGNAL(aboutToQuit()), this, SLOT(quit()));
 	connect(now_playing, SIGNAL(aboutToFinish()), this, SLOT(enqueueNext()));
 	connect(now_playing, SIGNAL(totalTimeChanged(qint64)), this, SLOT(updateDuration(qint64)));
 	connect(now_playing, SIGNAL(tick(qint64)), this, SLOT(tick(qint64)));
@@ -268,9 +274,18 @@ Player::Player(QWidget *parent) : KXmlGuiWindow(parent) {
 }
 
 Player::~Player() {
+	cleanup();
+}
+
+void Player::quit() {
+	cleanup();
+}
+
+void Player::cleanup() {
 	if (now_playing)
 		now_playing->pause();
 	delete queued;
+	delete tray_icon;
 	KConfigGroup curTrackDetails(config, "curTrackDetails");
 	curTrackDetails.writeEntry("artist", QString::number(artist_list->row(cur_artist)));
 	curTrackDetails.writeEntry("album",  QString::number(cur_album));
@@ -430,6 +445,8 @@ void Player::play(int tid, bool play, bool add_to_history) {
 			setQLabelText("%s", trackQuery, 4, mw_title);
 			mw_path->setText(qpath);
 			setWindowTitle(mw_artist->text() + " - " + mw_title->text() + "  |  Projekt 7");
+			if (add_to_history)
+				tray_icon->showMessage("Projekt 7 | Now Playing:", mw_artist->text() + " - " + mw_title->text(), QSystemTrayIcon::NoIcon, 5000);
 		}
 	} while (!done);
 }

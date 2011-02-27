@@ -4,6 +4,8 @@ KNOWN ISSUES:
 1) The player saves the location in the song that was playing when it was quit previously and will restore playback from that point.  As of now, there appears to be no way to set the "seek slider" to that point in the song without actually playing it when initializing.
 2) When loading files, the mime-type filters need work.
 3) When hiding the playlist, the window remembers the minimum height required to diplay the playlist and current width of the window instead of shrinking to the minimum width and height possible.
+4) When quitting the application from the "Quit" menu option in either the File menu, or the system tray's popup menu, KConfigGroup information is not being written.
+  - cleanup() is getting called, but the information is not getting saved.
 
 HELPER SCRIPTS:
 render_icons: uses inkscape to render projekt7.svg in the various sizes used by KDE4
@@ -20,6 +22,4 @@ FUTURE PLANS:
 4) Display track length and album lenth
    - length right aligned in column
 5) Integrate libvisual or newer, more functional equivalent
-6) Add a system tray icon
-7) Show a notification from the sytem tray icon when the track changes
 NOTE: FUTURE PLANS listed in no particular order
