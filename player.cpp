@@ -404,7 +404,7 @@ void Player::previous() {
 }
 
 void Player::play() {
-	if (now_playing->state() == Phonon::PausedState) //TODO: figure out why this broke
+	if (now_playing->state() == Phonon::PausedState)
 		now_playing->play();
 	else if (titles_list->currentItem())
 		play(titles_list->currentItem()->data(Qt::UserRole).toInt());
