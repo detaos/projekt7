@@ -51,6 +51,7 @@ const char *ALL = "[All]";
 
 Player::Player(QWidget *parent) : KXmlGuiWindow(parent) {
 	//SETUP DATABASE
+	QDir(KGlobal::dirs()->saveLocation("data")).mkdir("projekt7"); //NOTE: creates the projekt7 directory if it doesn't already exist
 	QString db_path = KGlobal::dirs()->saveLocation("data") + "projekt7/tracks_db";
 	int return_code = sqlite3_open(qtos(db_path), &tracks_db);
 	if (return_code) {
@@ -267,7 +268,9 @@ Player::Player(QWidget *parent) : KXmlGuiWindow(parent) {
 			titles_list->setCurrentRow(0);
 		play(titles_list->currentItem()->data(Qt::UserRole).toInt(), false, false);
 		pause();
-		now_playing->seek(curTrackDetails.readEntry("tick", QString()).toLongLong());
+		quint64 song_position = curTrackDetails.readEntry("tick", QString()).toLongLong();
+		now_playing->seek(song_position);
+		tick(song_position);
 		//TODO update the seekSlider's position to match the "tick" location of the song
 	}
 }
@@ -401,7 +404,7 @@ void Player::previous() {
 }
 
 void Player::play() {
-	if (now_playing->state() == Phonon::PausedState)
+	if (now_playing->state() == Phonon::PausedState) //TODO: figure out why this broke
 		now_playing->play();
 	else if (titles_list->currentItem())
 		play(titles_list->currentItem()->data(Qt::UserRole).toInt());
