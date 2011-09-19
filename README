@@ -6,6 +6,7 @@ KNOWN ISSUES:
 3) When hiding the playlist, the window remembers the minimum height required to diplay the playlist and current width of the window instead of shrinking to the minimum width and height possible.
 4) When quitting the application from the "Quit" menu option in either the File menu, or the system tray's popup menu, KConfigGroup information is not being written.
   - cleanup() is getting called, but the information is not getting saved.
+5) After an update to Qt, if a song is paused, then the play button is clicked, the song starts over from the begining instead of resuming from its pause location.
 
 HELPER SCRIPTS:
 render_icons: uses inkscape to render projekt7.svg in the various sizes used by KDE4
@@ -21,5 +22,5 @@ FUTURE PLANS:
    - 'n' to 'n+9' "top" tracks (1 to 10, then 11 to 20, then ... )
 4) Display track length and album lenth
    - length right aligned in column
-5) Integrate libvisual or newer, more functional equivalent
+5) Integrate projectM
 NOTE: FUTURE PLANS listed in no particular order
