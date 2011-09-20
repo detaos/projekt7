@@ -6,6 +6,7 @@ Standards-Version: 3.9.1
 Build-Depends: debhelper (>= 7.3.8),
   libqt4-dev,
   kdelibs5-dev,
+  pkg-kde-tools (>= 0.9.0),
   libtag1-dev,
   libsqlite3-dev,
   libphonon-dev,
